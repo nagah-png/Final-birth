@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عيد ميلاد أغلى الناس ✨</title>
+    <style>
+        body { display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; background-color: #fff5f5; font-family: Arial, sans-serif; overflow-x: hidden; }
+        .container { text-align: center; background: white; padding: 30px 20px; border-radius: 25px; box-shadow: 0 15px 30px rgba(0,0,0,0.1); border: 2px solid #ff758c; width: 85%; max-width: 450px; z-index: 10; margin: 20px; }
+        h1 { color: #d63384; font-size: 1.2rem; margin-bottom: 25px; line-height: 1.6; }
+        .buttons { display: flex; justify-content: center; gap: 15px; flex-direction: column; align-items: center; }
+        button { padding: 12px 25px; border-radius: 15px; border: none; cursor: pointer; font-size: 1.1rem; font-weight: bold; transition: 0.2s; width: 80%; }
+        .yes-btn { background-color: #ff758c; color: white; }
+        .big-yes { background-color: #d63384; color: white; padding: 18px 30px; font-size: 1.4rem; }
+        #noBtn { background-color: #ffb3c1; color: white; position: relative; width: auto; }
+        .final-text { color: #d63384; font-size: 1.1rem; line-height: 1.8; text-align: center; white-space: pre-line; }
+        .angry-note { color: #ff4d6d; font-weight: bold; margin-bottom: 15px; display: block; font-size: 1.1rem; }
+    </style>
+</head>
+<body>
+    <div class="container" id="mainContainer">
+        <div id="content">
+            <h1 id="question">Happy birthday علوشة قلبي❣️ <br><br> اول شي بتحبني ؟؟ حاول تضغط لا اذا بتقدر 😁</h1>
+            <div class="buttons" id="btnGroup">
+                <button class="yes-btn" onclick="showFinal()">أي</button>
+                <button id="noBtn" onmouseover="moveButton(event)" ontouchstart="moveButton(event)" onclick="handleNo()">لا</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script>
+        function moveButton(e) {
+            if (e) e.preventDefault();
+            const btn = document.getElementById('noBtn');
+            const x = Math.random() * (window.innerWidth - btn.offsetWidth - 20);
+            const y = Math.random() * (window.innerHeight - btn.offsetHeight - 20);
+            btn.style.position = 'fixed';
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
+
+        function handleNo() {
+            document.getElementById('content').innerHTML = `
+                <span class="angry-note">يعني جربت تضغط على لا🙂 ماشي يا علي بطلت اعايد عليك حردت!</span>
+                <h1>خلص راح اعطيك فرصة تانيه.. بتحبني؟</h1>
+                <div class="buttons">
+                    <button class="yes-btn" onclick="showFinal()">أي</button>
+                    <button class="yes-btn big-yes" onclick="showFinal()">أي كبييييرة</button>
+                </div>
+            `;
+        }
+
+        function showFinal() {
+            confetti({ particleCount: 250, spread: 100, origin: { y: 0.6 }, colors: ['#ff758c', '#ffb3c1', '#ffffff'] });
+            
+            document.getElementById('content').innerHTML = `
+                <div class="final-text">
+                    يا أفخم مواليد مايو 👑
+
+                    يوم ميلادك هو يوم ميلاد الأيام الحلوه بحياتي
+                    كبرت سنة وكبر حبك في قلبي سنييييين 
+
+                    كل عام وانت الحب والخشير وابو شريك😂❤️
+                    كل عام وانت بخير يا وجه الخير، كل عام والدنيا ما تحلوا الا فيك وبعيونك وصوتك
+ 
+                    يا جعل عمرك جنبي كل الاعوام، ويا جعل عيد ميلادك يمر الف عام 
+
+                    So lucky to have you 
+                    And my heart is full of you🫂❤️
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
